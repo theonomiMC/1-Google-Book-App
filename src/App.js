@@ -1,4 +1,5 @@
 import React from 'react'
+import { Header } from './components/Header'
 import Details from './components/Details'
 import Favorites from './components/Favorites'
 import Home from './components/Home'
@@ -8,27 +9,31 @@ import {
   Switch,
   Route,
 } from "react-router-dom"
-import { Header } from './components/Header'
+
+import { GlobalProvider } from './context/GlobalState'
 
 
 const App = () => {
 
   return (
+    <GlobalProvider>
     <Router>
       <Header />
+
         <Switch>
-          <Route exact path="/">
-            <Home />
+          <Route exact path="/" component={Home}>
+            {/* <Home /> */}
           </Route>
-          <Route path="/details">
-            <Details />
+          <Route path="/details" component={Details}>
+            {/* <Details /> */}
           </Route>
-          <Route path="/favorites">
-            <Favorites />
+          <Route path="/favorites" component={Favorites}>
+            {/* <Favorites /> */}
           </Route>
         </Switch>
       
     </Router>
+    </GlobalProvider>
   )
 }
 

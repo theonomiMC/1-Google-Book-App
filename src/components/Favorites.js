@@ -1,20 +1,35 @@
-import React from 'react'
-import Home from './Home'
+import React, {useContext} from 'react'
+import { BooksContext } from '../context/GlobalState'
+import { FavBookCard } from './FavBookCard'
 
-export default class Favorites extends React.Component {
-    constructor(props) {
-      super(props);  
-      this.state = {};
-    }
-    render() {
-        const { favorites } = this.props;
-       
-        return (
+ const Favorites = () => {
+  const { favorites } = useContext(BooksContext)
+  return (
+    //   <div>
           <div className="container">
-          <h1> my favorite books</h1>
-          
+              {favorites.length > 0 ?
+                  (
+                      <div>
+                          <div>
+                              <h1>
+                                  My Favorite Books
+                              </h1>
+                          </div>
+                          <div className="container">
+                              {favorites.map(book =>
+                                  (
+                                      <FavBookCard book={book} type="favorites" />
+                                  )
+                              )}
+                          </div>
+                      </div>
+                  ) : <h1 className="no-books">No Favorite Books</h1>
+              }
+
           </div>
-        
-        )
-    }
-  }
+    //   </div>
+
+
+  )
+}
+export default Favorites

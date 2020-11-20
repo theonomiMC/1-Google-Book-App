@@ -1,27 +1,51 @@
 import React from 'react'
 import logo from './logo.svg'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export const Header = () => {
+
     return (
-        <header className="header">
+        <div className="header-box">
+           
             <Link to="/" className="logo">
-                {/* Google Books */}
-                <img src={logo} alt="logo" />
+            {/* Google Books */}
+            <img src={logo} alt="logo" />
             </Link>
-            <nav className="header-right">
-                <Link to="/" className="active" >
-                    Home
-                </Link>
-                <Link to="/details" >
-                    Details
-                </Link>
-                <Link to="/favorites" >
-                    Favorites
-                </Link>
 
+            <div className="header-text">
+                <h1 className='header-title'>My Books</h1>
+                <div className='nav'>
+                    <NavLink to="/" exact activeClassName="active">
+                        Home
+                </NavLink>
 
-            </nav>
-        </header>
+                    <NavLink to="/details" activeClassName="active" >
+                        Details
+                </NavLink>
+
+                    <NavLink to="/favorites" activeClassName="active" >
+                        Favorites
+                </NavLink>
+
+                </div>
+            </div>
+        </div>
     )
 }
+
+//  class Header extends React.Component {
+//     render() {
+//       return (
+//           <div className="header">
+//         <div className="header-right">
+
+//            <NavLink to='/' exact activeClassName="active" onClick={()=>console.log('a')}>Home</NavLink>
+//             <NavLink to='/details' activeClassName="active" onClick={()=>console.log('a')}>Details</NavLink>
+//            <NavLink to='/favorites' activeClassName="active" onClick={()=>console.log('a')}>Favorites</NavLink>
+
+//         </div>
+//         </div>
+//       );
+//     }
+//   }
+//   export default Header
