@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  box-sizing:border-box;
+}
+body{
+    line-height:1.5;
+    font-family: 'Roboto Slab', serif;
+    font-weight:500;
+    background-color:#f9f5e8;
+   
+  }
+  .sidenav {
+    height: 100%;
+    width: 130px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+    font-family: 'PT Serif', serif;
+  }
+  .sidenav a {
+    padding: 7px 5px 8px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-family:'georgia';
+    color: #818181;
+    display: block;
+    letter-spacing:1.1px;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
